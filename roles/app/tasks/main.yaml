@@ -1,28 +1,29 @@
- - name: disable current nodejs
-   ansible.builtin.command: dnf module disable nodejs -y
+- name: disable current nodejs
+  ansible.builtin.command: dnf module disable nodejs -y
 
- - name: enable nodejs 20
-   ansible.builtin.command: dnf module enable nodejs:20 -y
+- name: enable nodejs 20
+  ansible.builtin.command: dnf module enable nodejs:20 -y
 
- - name: Install "coffee-script" node.js package globally
-   ansible.builtin.package:
-     name: "{{ item }}"
-   loop:
-     - mysql
-     - nodejs
-      
-      
- - name: Install bottle for Python 3.3 specifically, using the 'pip3.3' executable
-   ansible.builtin.pip:
-     name: "{{ item }}"
-     executable: pip3.9
-   loop:
-     - cryptography
-     - PyMYSQL
+- name: Install "coffee-script" node.js package globally
+  ansible.builtin.package:
+    name: "{{ item }}"
+  loop:
+    - mysql
+    - nodejs
+    
+    
+- name: Install bottle for Python 3.3 specifically, using the 'pip3.3' executable
+  ansible.builtin.pip:
+    name: "{{ item }}"
+    executable: pip3.9
+  loop:
+    - cryptography
+    - PyMYSQL
     
 - name: Add the user 'expense'
   ansible.builtin.user:
     name: expense
+
 - name: Create a directory if it does not exist
   ansible.builtin.file:
     path: /app
