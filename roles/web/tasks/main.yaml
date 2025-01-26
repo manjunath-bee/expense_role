@@ -27,8 +27,6 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: main
-  tags:
-   - Deployment
 
 - name: Copy file with owner and permissions
   ansible.builtin.template:
