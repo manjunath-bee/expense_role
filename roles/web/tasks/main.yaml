@@ -23,10 +23,13 @@
 #     dest: /usr/share/nginx/html
 #     remote_src: yes
 
-- name: Run tasks/other.yaml instead of 'main'
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: main
+# - name: Run tasks/other.yaml instead of 'main'
+#   ansible.builtin.include_role:
+#     name: common
+#     tasks_from: main
+
+  dependencies:
+    - role: common
 
 - name: Copy file with owner and permissions
   ansible.builtin.template:
