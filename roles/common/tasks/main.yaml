@@ -3,14 +3,14 @@
     path: "{{ PATH }}"
     state: absent
   tags:
-     - Deployment
+   - Deployment
 
 - name: Create directory
   ansible.builtin.file:
     path: "{{ PATH }}"
     state: directory
   tags:
-     - Deployment
+   - Deployment
 
 - name: Unarchive a file that needs to be downloaded (added in 2.0)
   ansible.builtin.unarchive:
@@ -18,4 +18,4 @@
     dest: "{{ PATH }}"
     remote_src: yes
   tags:
-     - Deployment
+   - Deployment
