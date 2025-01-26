@@ -28,8 +28,8 @@
 #     name: common
 #     tasks_from: main
 
-  dependencies:
-    - role: common
+dependencies:
+ - role: common
 
 - name: Copy file with owner and permissions
   ansible.builtin.template:
