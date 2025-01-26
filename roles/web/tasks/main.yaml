@@ -2,7 +2,7 @@
   ansible.builtin.dnf:
     name: nginx
     state: present
-    
+
 - name: Enable service httpd, and not touch the state
   ansible.builtin.service:
     name: nginx
@@ -27,6 +27,8 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: main
+  tags:
+   - Deployment
 
 - name: Copy file with owner and permissions
   ansible.builtin.template:
